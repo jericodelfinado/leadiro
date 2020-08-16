@@ -1,6 +1,7 @@
 package com.leadiro.starter.service.integration.postcode.service;
 
 import com.leadiro.starter.common.exception.RestException;
+import com.leadiro.starter.config.integration.PostCodeIntegrationConfig;
 import com.leadiro.starter.service.integration.postcode.request.PostCodeQueryRequest;
 import com.leadiro.starter.service.integration.postcode.response.PostCodeQueryResponse;
 import lombok.extern.slf4j.Slf4j;
@@ -20,13 +21,16 @@ public class PostCodeQueryServiceImpl implements PostCodeQueryService {
     @Autowired
     private RestTemplate restTemplate;
 
+    @Autowired
+    private PostCodeIntegrationConfig postCodeIntegrationConfig;
+
     @Override
     public PostCodeQueryResponse query(PostCodeQueryRequest request) {
 
         try {
-            log.info("Querying {} from postocodes.io", request.getPostCode());
+            log.info("Querying {} from {}", request.getPostCode(), postCodeIntegrationConfig.getBasePath());
             ResponseEntity<PostCodeQueryResponse> responseEntity = restTemplate.getForEntity(
-                    MessageFormat.format("http://api.postcodes.io/postcodes/{0}", request.getPostCode()),
+                    MessageFormat.format("{0}/{1}", postCodeIntegrationConfig.getBasePath(), request.getPostCode()),
                     PostCodeQueryResponse.class);
             log.info("Post code query response: {}", responseEntity);
             return responseEntity.getBody();

@@ -14,7 +14,7 @@ auth:
 leadiro:
   integration:
     postcode:
-      basePath: http://api.postcodes.io/postocodes
+      basePath: http://localhost:1430/postcodes
 
 server:
   port: 8090
