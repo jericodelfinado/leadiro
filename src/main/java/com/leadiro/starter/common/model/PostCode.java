@@ -1,4 +1,4 @@
-package com.leadiro.starter.core.model;
+package com.leadiro.starter.common.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;

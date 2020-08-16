@@ -1,9 +1,7 @@
 package com.leadiro.starter.controller.api;
 
 import com.leadiro.starter.controller.api.response.GenericResponse;
-import org.springframework.http.HttpEntity;
-
-import java.util.Map;
+import com.leadiro.starter.controller.api.response.PostCodeGenericResponse;
 
 public interface ValidateApi {
 
@@ -21,5 +19,5 @@ public interface ValidateApi {
      * @param postCode post code to be validated
      * @return region if valid
      */
-    <T> GenericResponse<T> validatePostCode(String postCode);
+    PostCodeGenericResponse validatePostCode(String postCode);
 }

@@ -1,9 +1,11 @@
 package com.leadiro.starter.controller.api.validate;
 
 import com.leadiro.starter.common.ResultCode;
+import com.leadiro.starter.common.model.PostCode;
 import com.leadiro.starter.common.util.ParamCheckUtil;
 import com.leadiro.starter.controller.api.ValidateApi;
 import com.leadiro.starter.controller.api.response.GenericResponse;
+import com.leadiro.starter.controller.api.response.PostCodeGenericResponse;
 import com.leadiro.starter.controller.api.response.VoidGenericResponse;
 import com.leadiro.starter.service.biz.ValidateService;
 import com.leadiro.starter.service.biz.request.ValidationRequest;
@@ -19,6 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class ValidateApiController implements ValidateApi {
 
     private ValidateService<Void, String> emailValidationService;
+    private ValidateService<PostCode, String> postCodeValidationService;
 
     private ConversionService conversionService;
 
@@ -36,8 +39,12 @@ public class ValidateApiController implements ValidateApi {
 
     @Override
     @GetMapping("/postcode")
-    public <T> GenericResponse<T> validatePostCode(String postCode) {
-        return null;
+    public PostCodeGenericResponse validatePostCode(String postCode) {
+
+        ValidationResult<PostCode> validationResult =
+                postCodeValidationService.validate(new ValidationRequest<>(postCode));
+
+        return conversionService.convert(validationResult, PostCodeGenericResponse.class);
     }
 
 
@@ -50,5 +57,11 @@ public class ValidateApiController implements ValidateApi {
     @Autowired
     public void setConversionService(ConversionService conversionService) {
         this.conversionService = conversionService;
+    }
+
+    @Autowired
+    public void setPostCodeValidationService(
+            ValidateService<PostCode, String> postCodeValidationService) {
+        this.postCodeValidationService = postCodeValidationService;
     }
 }

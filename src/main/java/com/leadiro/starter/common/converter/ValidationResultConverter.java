@@ -1,4 +1,4 @@
-package com.leadiro.starter.common.common;
+package com.leadiro.starter.common.converter;
 
 import com.leadiro.starter.common.ResultCode;
 import com.leadiro.starter.controller.api.response.VoidGenericResponse;

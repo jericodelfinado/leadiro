@@ -8,13 +8,17 @@ import org.springframework.http.HttpStatus;
 public class RestException extends RuntimeException {
 
     private ResultCode resultCode;
-    private String message;
     private HttpStatus httpStatus;
 
     public RestException(ResultCode resultCode, String message, HttpStatus httpStatus) {
+        super(message);
         this.resultCode = resultCode;
-        this.message = message;
         this.httpStatus = httpStatus;
     }
 
+    public RestException(String message) {
+        super(message);
+        this.resultCode = ResultCode.UNKNOWN_ERROR;
+        this.httpStatus = HttpStatus.INTERNAL_SERVER_ERROR;
+    }
 }

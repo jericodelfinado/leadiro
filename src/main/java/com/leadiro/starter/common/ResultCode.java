@@ -13,6 +13,7 @@ public enum ResultCode {
 
     PARAM_ILLEGAL("100", "F", "Param illegal"),
     PARAM_MISSING("101", "F", "Param missing"),
+    UNKNOWN_ERROR("999", "U", "Unknown error"),
     ;
 
 
