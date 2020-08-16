@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.leadiro</groupId>
-    <artifactId>starter</artifactId>
+    <artifactId>jericodelfinado</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>starter</name>
-    <description>Leadiro starter microservice</description>
+    <name>jericodelfinado</name>
+    <description>Jerico's leadiro microservice</description>
 
     <properties>
         <java.version>13</java.version>

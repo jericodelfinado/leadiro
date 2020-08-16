@@ -1,5 +1,6 @@
 package com.leadiro.starter.controller.auth;
 
+import com.leadiro.starter.config.AuthConfigProperties;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.MDC;
@@ -23,11 +24,22 @@ import static org.apache.commons.lang3.StringUtils.defaultString;
 @Slf4j
 @SuppressWarnings("NullableProblems")
 public class JwtBearerTokenAuthenticationFilter extends OncePerRequestFilter {
-    @Autowired private JwtDecoder decoder;
+
+    @Autowired
+    private JwtDecoder decoder;
+
+    @Autowired
+    private AuthConfigProperties authConfigProperties;
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException {
         try {
+
+            if (!AuthTypeEnum.JWT.equals(authConfigProperties.getType())) {
+                filterChain.doFilter(request, response);
+                return; // skip filter
+            }
+
             String token = defaultString(request.getHeader("Authorization"), request.getParameter("Authorization"));
             log.trace("Filtering endpoint {} {} token: {}", request.getMethod(), request.getRequestURI(), token == null ? "none" : StringUtils.left(token, 20) + "...");
             if (token != null && token.startsWith("Bearer ")) {

@@ -3,6 +3,15 @@ app:
   version: starter-master-1
   timestamp: Thu Jun 18 15:32:18 UTC 2020
 
+auth:
+  type: BASIC
+  users:
+    -
+      name: admin
+      password: password123
+      roles:
+        - ROLE_USER
+
 server:
   port: 8090
   compression:
