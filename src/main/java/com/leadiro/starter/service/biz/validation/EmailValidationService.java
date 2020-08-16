@@ -1,10 +1,10 @@
-package com.leadiro.starter.service.validation;
+package com.leadiro.starter.service.biz.validation;
 
 import com.leadiro.starter.common.ResultCode;
 import com.leadiro.starter.common.exception.BadRequestException;
-import com.leadiro.starter.service.ValidateService;
-import com.leadiro.starter.service.request.ValidationRequest;
-import com.leadiro.starter.service.result.ValidationResult;
+import com.leadiro.starter.service.biz.ValidateService;
+import com.leadiro.starter.service.biz.request.ValidationRequest;
+import com.leadiro.starter.service.biz.result.ValidationResult;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 

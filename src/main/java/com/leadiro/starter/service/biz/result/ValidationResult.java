@@ -1,4 +1,4 @@
-package com.leadiro.starter.service.result;
+package com.leadiro.starter.service.biz.result;
 
 import lombok.Data;
 

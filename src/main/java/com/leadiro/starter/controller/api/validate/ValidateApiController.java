@@ -2,14 +2,12 @@ package com.leadiro.starter.controller.api.validate;
 
 import com.leadiro.starter.common.ResultCode;
 import com.leadiro.starter.common.util.ParamCheckUtil;
-import com.leadiro.starter.common.util.ResponseUtil;
 import com.leadiro.starter.controller.api.ValidateApi;
 import com.leadiro.starter.controller.api.response.GenericResponse;
 import com.leadiro.starter.controller.api.response.VoidGenericResponse;
-import com.leadiro.starter.service.ValidateService;
-import com.leadiro.starter.service.request.ValidationRequest;
-import com.leadiro.starter.service.result.ValidationResult;
-import org.apache.ibatis.annotations.Param;
+import com.leadiro.starter.service.biz.ValidateService;
+import com.leadiro.starter.service.biz.request.ValidationRequest;
+import com.leadiro.starter.service.biz.result.ValidationResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.ConversionService;
 import org.springframework.web.bind.annotation.GetMapping;

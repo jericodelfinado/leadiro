@@ -2,7 +2,7 @@ package com.leadiro.starter.common.common;
 
 import com.leadiro.starter.common.ResultCode;
 import com.leadiro.starter.controller.api.response.VoidGenericResponse;
-import com.leadiro.starter.service.result.ValidationResult;
+import com.leadiro.starter.service.biz.result.ValidationResult;
 import org.springframework.core.convert.converter.Converter;
 
 public class ValidationResultConverter implements Converter<ValidationResult<Void>, VoidGenericResponse> {
